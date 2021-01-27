@@ -1,14 +1,31 @@
 describe("Redirections ", () => {
-  cy.visit("/start");
+  it("Check redirection between Gästbok and Start", () => {
+    cy.visit("/start");
 
-  cy.get('a[href*="guestbook.html"]').click();
+    cy.contains("Gästbok").click();
+
+    cy.contains("Tillbaka").click();
+
+    cy.url().should("include", "/start");
+  });
+
+  it("Check redirection between Presentation and Start ", () => {
+    cy.visit("/start");
+
+    cy.contains("Presentation").click();
+
+    cy.contains("Tillbaka").click();
+
+    cy.url().should("include", "/start");
+  });
+
+  it("Check redirection between Logga ut and Start ", () => {
+    cy.visit("/start");
+
+    cy.contains("Logga ut").click();
+
+    cy.contains("Coola communityt");
+
+    cy.url().should("include", "/");
+  });
 });
-
-// kolla följande länkar:
-// startsida --> Presentation
-// Presentation --> tillbaka
-
-//Logga ut
-
-// startsida --> gästbok
-// gästbok --> tillbaka
