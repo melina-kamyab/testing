@@ -1,8 +1,14 @@
-// kolla följande länkar: 
-    // startsida --> Presentation
-    // Presentation --> tillbaka 
+describe("Redirections ", () => {
+  cy.visit("/start");
 
-    //Logga ut 
+  cy.get('a[href*="guestbook.html"]').click();
+});
 
-    // startsida --> gästbok
-    // gästbok --> tillbaka 
+// kolla följande länkar:
+// startsida --> Presentation
+// Presentation --> tillbaka
+
+//Logga ut
+
+// startsida --> gästbok
+// gästbok --> tillbaka
