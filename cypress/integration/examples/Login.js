@@ -1,5 +1,6 @@
 //Evelina
 
+
 describe("Login form", () =>{
 
     it("Can sign in", () =>{
@@ -10,5 +11,15 @@ describe("Login form", () =>{
         cy.get("form").submit();
         cy.url().should("include", "start");
         cy.contains("Välkommen CoolUser").end();
+    })
+
+    it("Cant sign in", () =>{
+        cy.visit("/");
+        cy.get("form");
+        cy.get('input[name="username"]').type("CoolUser");
+        cy.get('input[name="password"]').type("asd");
+        cy.get("form").submit();
+        cy.url().should("include","wronglogin").end();
+
     })
 }) 
