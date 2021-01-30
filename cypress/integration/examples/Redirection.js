@@ -1,8 +1,31 @@
-// kolla följande länkar: 
-    // startsida --> Presentation
-    // Presentation --> tillbaka 
+describe("Redirections ", () => {
+  it("Check redirection between Gästbok and Start", () => {
+    cy.visit("/start");
 
-    //Logga ut 
+    cy.contains("Gästbok").click();
 
-    // startsida --> gästbok
-    // gästbok --> tillbaka 
+    cy.contains("Tillbaka").click();
+
+    cy.url().should("include", "/start").end();
+  });
+
+  it("Check redirection between Presentation and Start ", () => {
+    cy.visit("/start");
+
+    cy.contains("Presentation").click();
+
+    cy.contains("Tillbaka").click();
+
+    cy.url().should("include", "/start").end();
+  });
+
+  it("Check redirection between Logga ut and Start ", () => {
+    cy.visit("/start");
+
+    cy.contains("Logga ut").click();
+
+    cy.contains("Coola communityt");
+
+    cy.url().should("include", "/").end();
+  });
+});
