@@ -1,5 +1,3 @@
-//Evelina 
-
 describe("guestbook", () =>{
 
     it("Make guestbook post", () =>{
