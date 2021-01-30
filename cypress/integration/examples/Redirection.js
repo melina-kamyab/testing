@@ -6,7 +6,7 @@ describe("Redirections ", () => {
 
     cy.contains("Tillbaka").click();
 
-    cy.url().should("include", "/start");
+    cy.url().should("include", "/start").end();
   });
 
   it("Check redirection between Presentation and Start ", () => {
@@ -16,7 +16,7 @@ describe("Redirections ", () => {
 
     cy.contains("Tillbaka").click();
 
-    cy.url().should("include", "/start");
+    cy.url().should("include", "/start").end();
   });
 
   it("Check redirection between Logga ut and Start ", () => {
@@ -26,6 +26,6 @@ describe("Redirections ", () => {
 
     cy.contains("Coola communityt");
 
-    cy.url().should("include", "/");
+    cy.url().should("include", "/").end();
   });
 });
